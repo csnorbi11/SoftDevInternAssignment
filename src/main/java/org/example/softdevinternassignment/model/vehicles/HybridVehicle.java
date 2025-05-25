@@ -13,6 +13,6 @@ public class HybridVehicle extends VehicleBase {
 
     @Override
     public int getRefuelCost(int distance) {
-        return getRemainingFuel(distance)*2;
+        return getRemainingFuel(distance)*(2+1);
     }
 }
