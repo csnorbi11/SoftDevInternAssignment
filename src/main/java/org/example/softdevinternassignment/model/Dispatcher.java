@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dispatcher {
-    record Combination(VehicleBase vehicle, int profit) {
-    }
 
     private final Fleet fleet;
 
@@ -19,10 +17,15 @@ public class Dispatcher {
         fleet.addVehicle(vehicle);
     }
 
-    public List<Combination> listVehicles(Trip trip){
-        List<Combination> combinations=new ArrayList<Combination>();
+    public List<VehicleSuggestion> listVehicles(Trip trip){
+        List<VehicleSuggestion> combinations=new ArrayList<VehicleSuggestion>();
         for(VehicleBase vehicle:fleet.getVehicles()){
-            combinations.add(new Combination(vehicle,calculateProfit(trip,vehicle)));
+            combinations.add(new VehicleSuggestion(
+                    vehicle.getVehicleType(),
+                    vehicle.getCapacity(),
+                    vehicle.getRange(),
+                    calculateProfit(trip,vehicle))
+            );
         }
         return combinations;
     }

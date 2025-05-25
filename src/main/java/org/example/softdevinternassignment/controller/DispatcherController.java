@@ -2,6 +2,7 @@ package org.example.softdevinternassignment.controller;
 
 import org.example.softdevinternassignment.model.Dispatcher;
 import org.example.softdevinternassignment.model.Trip;
+import org.example.softdevinternassignment.model.VehicleSuggestion;
 import org.example.softdevinternassignment.model.vehicles.ElectricVehicle;
 import org.example.softdevinternassignment.model.vehicles.GasolineVehicle;
 import org.example.softdevinternassignment.model.vehicles.HybridVehicle;
@@ -20,18 +21,13 @@ public class DispatcherController {
 
     @PostMapping("/vehicles")
     public ResponseEntity<String> addVehicle(@RequestBody VehicleRequest request){
-        VehicleBase vehicle=null;
-        switch (request.type()){
-            case "gasoline":
-                vehicle=new GasolineVehicle(request.capacity(),request.range());
-                break;
-            case "electric":
-                vehicle=new ElectricVehicle(request.capacity(),request.range());
-                break;
-            case "hybrid":
-                vehicle=new HybridVehicle(request.capacity(),request.range());
-                break;
-        }
+        VehicleBase vehicle= switch (request.type().toLowerCase()){
+            case "gasoline" -> new GasolineVehicle(request.capacity(),request.range());
+            case "electric" -> new ElectricVehicle(request.capacity(),request.range());
+            case "hybrid" -> new HybridVehicle(request.capacity(),request.range());
+            default -> throw new IllegalArgumentException("Invalid vehicle type: "+request.type());
+
+        };
         dispatcher.addVehicleToFleet(vehicle);
 
         return ResponseEntity.ok("Vehicle added");
