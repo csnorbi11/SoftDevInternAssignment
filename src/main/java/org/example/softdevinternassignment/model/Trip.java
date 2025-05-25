@@ -28,8 +28,7 @@ public class Trip {
             return distance*2;
         }else{
             int inCityTime=distance*2;
-            int outCityDistance=distance-50;
-            int outCityTime=outCityDistance;
+            int outCityTime= distance-50;
             return inCityTime+outCityTime;
         }
     }
