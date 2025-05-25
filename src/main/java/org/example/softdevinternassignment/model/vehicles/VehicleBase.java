@@ -1,4 +1,4 @@
-package org.example.softdevinternassignment.model;
+package org.example.softdevinternassignment.model.vehicles;
 
 public abstract class VehicleBase {
     protected final int range;

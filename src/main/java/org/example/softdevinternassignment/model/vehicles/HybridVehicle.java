@@ -1,4 +1,4 @@
-package org.example.softdevinternassignment.model;
+package org.example.softdevinternassignment.model.vehicles;
 
 public class HybridVehicle extends VehicleBase {
     public HybridVehicle(int capacity, int range) {
