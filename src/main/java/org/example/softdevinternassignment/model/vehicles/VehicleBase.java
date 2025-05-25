@@ -30,9 +30,6 @@ public abstract class VehicleBase {
     public final String getVehicleType(){
         return this.getClass().getSimpleName();
     }
-    public int getRemainingFuel(int distance) {
-        return range-distance;
-    }
     public int getRefuelCost(int distance) {
         return distance*refuelCost;
     }

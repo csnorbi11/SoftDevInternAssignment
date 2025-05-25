@@ -20,7 +20,7 @@ public class Dispatcher {
     public List<VehicleSuggestion> listVehicles(Trip trip){
         List<VehicleSuggestion> combinations=new ArrayList<>();
         for(VehicleBase vehicle:fleet.getVehicles()){
-            if(vehicle.getRemainingFuel(trip.getDistance())>=0){
+            if(vehicle.getRange()-trip.getDistance()>=0){
                 combinations.add(new VehicleSuggestion(
                     vehicle.getVehicleType(),
                     vehicle.getCapacity(),
