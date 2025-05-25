@@ -11,8 +11,6 @@ public class Trip {
         onlyCity = distance <= 50;
     }
 
-
-
     public int getDistance() {
         return distance;
     }

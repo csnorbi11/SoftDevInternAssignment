@@ -12,7 +12,6 @@ public class Fleet {
         vehicles= new ArrayList<VehicleBase>();
     }
 
-
     public void addVehicle(VehicleBase vehicle){
         vehicles.add(vehicle);
     }
