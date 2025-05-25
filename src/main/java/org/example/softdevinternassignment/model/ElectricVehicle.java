@@ -1,0 +1,12 @@
+package org.example.softdevinternassignment.model;
+
+public class ElectricVehicle extends VehicleBase {
+    public ElectricVehicle(int capacity, int range) {
+        super(capacity, range);
+    }
+
+    @Override
+    public int getRemainingFuel(int distance) {
+        return range-distance;
+    }
+}

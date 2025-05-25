@@ -1,12 +1,10 @@
 package org.example.softdevinternassignment.model;
 
 public abstract class VehicleBase {
-    private final int range;
+    protected final int range;
     private final int capacity;
-    private final int fuelConsumption;
 
-    public VehicleBase(int capacity, int range, int fuelConsumption) {
-        this.fuelConsumption = fuelConsumption;
+    public VehicleBase(int capacity, int range) {
         if(capacity<=0){
             throw new IllegalArgumentException("Capacity must be greater than 0");
         }
@@ -23,7 +21,5 @@ public abstract class VehicleBase {
     public int getCapacity(){
         return capacity;
     }
-    public int getRemainingFuel(int distance){
-        return range-fuelConsumption*distance;
-    }
+    public abstract int getRemainingFuel(int distance);
 }

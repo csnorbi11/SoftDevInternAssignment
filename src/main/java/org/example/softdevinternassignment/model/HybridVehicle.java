@@ -1,0 +1,13 @@
+package org.example.softdevinternassignment.model;
+
+public class HybridVehicle extends VehicleBase {
+    public HybridVehicle(int capacity, int range) {
+        super(capacity, range);
+    }
+
+    @Override
+    public int getRemainingFuel(int distance) {
+        int consumedFuel=Math.round(distance/2.f);
+        return range-consumedFuel;
+    }
+}
