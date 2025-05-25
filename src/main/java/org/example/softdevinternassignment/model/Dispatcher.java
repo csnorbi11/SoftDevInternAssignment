@@ -20,12 +20,15 @@ public class Dispatcher {
     public List<VehicleSuggestion> listVehicles(Trip trip){
         List<VehicleSuggestion> combinations=new ArrayList<>();
         for(VehicleBase vehicle:fleet.getVehicles()){
-            combinations.add(new VehicleSuggestion(
+            if(vehicle.getRemainingFuel(trip.getDistance())>=0){
+                combinations.add(new VehicleSuggestion(
                     vehicle.getVehicleType(),
                     vehicle.getCapacity(),
                     vehicle.getRange(),
                     calculateProfit(trip,vehicle))
-            );
+                );
+            }
+
         }
         return combinations;
     }
