@@ -10,6 +10,10 @@ public class Dispatcher {
         fleet=new Fleet();
     }
 
+    public void addVehicleToFleet(VehicleBase vehicle){
+        fleet.addVehicle(vehicle);
+    }
+
     public VehicleBase suggestVehicle(Trip trip){
         VehicleBase bestOption=fleet.getVehicles().getFirst();
         for(VehicleBase vehicle:fleet.getVehicles()){

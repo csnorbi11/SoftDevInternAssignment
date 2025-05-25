@@ -3,16 +3,12 @@ package org.example.softdevinternassignment.model;
 public class Trip {
     private final int distance;
     private final int passengerCount;
-    private boolean onlyCity;
+    private final boolean onlyCity;
 
     public Trip(int distance, int passengerCount) {
         this.distance = distance;
         this.passengerCount = passengerCount;
-        if(distance<=50){
-            onlyCity=true;
-        }else{
-            onlyCity=false;
-        }
+        onlyCity = distance <= 50;
     }
 
 
