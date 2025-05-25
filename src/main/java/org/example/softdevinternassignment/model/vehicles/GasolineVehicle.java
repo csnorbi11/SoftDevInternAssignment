@@ -2,7 +2,7 @@ package org.example.softdevinternassignment.model.vehicles;
 
 public class GasolineVehicle extends VehicleBase {
     public GasolineVehicle(int capacity, int range) {
-        super(capacity, range);
+        super(capacity, range,2);
     }
 
     @Override
@@ -12,6 +12,6 @@ public class GasolineVehicle extends VehicleBase {
 
     @Override
     public int getRefuelCost(int distance) {
-        return getRemainingFuel(distance)*2;
+        return getRemainingFuel(distance)*refuelCost;
     }
 }
