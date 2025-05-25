@@ -10,4 +10,9 @@ public class HybridVehicle extends VehicleBase {
         int consumedFuel=Math.round(distance/2.f);
         return range-consumedFuel;
     }
+
+    @Override
+    public int getRefuelCost(int distance) {
+        return getRemainingFuel(distance)*2;
+    }
 }

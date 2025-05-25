@@ -9,4 +9,9 @@ public class GasolineVehicle extends VehicleBase {
     public int getRemainingFuel(int distance) {
         return range-distance;
     }
+
+    @Override
+    public int getRefuelCost(int distance) {
+        return getRemainingFuel(distance)*2;
+    }
 }

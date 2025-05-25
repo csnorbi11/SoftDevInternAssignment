@@ -22,4 +22,5 @@ public abstract class VehicleBase {
         return capacity;
     }
     public abstract int getRemainingFuel(int distance);
+    public abstract int getRefuelCost(int distance);
 }
