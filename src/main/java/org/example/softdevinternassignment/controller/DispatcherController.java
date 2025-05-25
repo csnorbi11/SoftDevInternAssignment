@@ -2,7 +2,6 @@ package org.example.softdevinternassignment.controller;
 
 import org.example.softdevinternassignment.model.Dispatcher;
 import org.example.softdevinternassignment.model.Trip;
-import org.example.softdevinternassignment.model.VehicleSuggestion;
 import org.example.softdevinternassignment.model.vehicles.ElectricVehicle;
 import org.example.softdevinternassignment.model.vehicles.GasolineVehicle;
 import org.example.softdevinternassignment.model.vehicles.HybridVehicle;

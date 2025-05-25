@@ -18,7 +18,7 @@ public class Dispatcher {
     }
 
     public List<VehicleSuggestion> listVehicles(Trip trip){
-        List<VehicleSuggestion> combinations=new ArrayList<VehicleSuggestion>();
+        List<VehicleSuggestion> combinations=new ArrayList<>();
         for(VehicleBase vehicle:fleet.getVehicles()){
             combinations.add(new VehicleSuggestion(
                     vehicle.getVehicleType(),
@@ -31,13 +31,11 @@ public class Dispatcher {
     }
 
     private int calculateProfit(Trip trip, VehicleBase vehicle){
-        int profit=0;
         int distanceFee=trip.getPassengerCount()* trip.getDistance()*2;
         int timeFee=trip.getTripTime();
         int refuelCost= vehicle.getRefuelCost(trip.getDistance());
-        profit=distanceFee+timeFee-refuelCost;
 
-        return profit;
+        return distanceFee+timeFee-refuelCost;
     }
 
 }
