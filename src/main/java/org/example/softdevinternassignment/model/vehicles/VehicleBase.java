@@ -21,6 +21,9 @@ public abstract class VehicleBase {
     public int getCapacity(){
         return capacity;
     }
+    public String getVehicleType(){
+        return this.getClass().getSimpleName();
+    }
     public abstract int getRemainingFuel(int distance);
     public abstract int getRefuelCost(int distance);
 }

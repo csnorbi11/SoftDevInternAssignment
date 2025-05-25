@@ -2,7 +2,12 @@ package org.example.softdevinternassignment.model;
 
 import org.example.softdevinternassignment.model.vehicles.VehicleBase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Dispatcher {
+    record Combination(VehicleBase vehicle, int profit) {
+    }
 
     private final Fleet fleet;
 
@@ -14,14 +19,12 @@ public class Dispatcher {
         fleet.addVehicle(vehicle);
     }
 
-    public VehicleBase suggestVehicle(Trip trip){
-        VehicleBase bestOption=fleet.getVehicles().getFirst();
+    public List<Combination> listVehicles(Trip trip){
+        List<Combination> combinations=new ArrayList<Combination>();
         for(VehicleBase vehicle:fleet.getVehicles()){
-            if(calculateProfit(trip,vehicle)>calculateProfit(trip,bestOption)){
-                bestOption=vehicle;
-            }
+            combinations.add(new Combination(vehicle,calculateProfit(trip,vehicle)));
         }
-        return bestOption;
+        return combinations;
     }
 
     private int calculateProfit(Trip trip, VehicleBase vehicle){
