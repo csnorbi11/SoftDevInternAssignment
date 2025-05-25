@@ -5,4 +5,9 @@ public class HybridVehicle extends VehicleBase {
         super(capacity, range, 3,0.5f);
 
     }
+
+    @Override
+    public String toString() {
+        return "HybridVehicle" + super.toString();
+    }
 }

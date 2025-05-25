@@ -31,10 +31,17 @@ public abstract class VehicleBase {
     public final int getCapacity(){
         return capacity;
     }
-    public final String getVehicleType(){
-        return this.getClass().getSimpleName();
-    }
     public int getRefuelCost(int distance) {
         return Math.round(distance*refuelCost*consumptionPerKm);
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "capacity=" + capacity +
+                ", range=" + range +
+                ", consumptionPerKm=" + consumptionPerKm +
+                ", refuelCost=" + refuelCost +
+                '}';
     }
 }
