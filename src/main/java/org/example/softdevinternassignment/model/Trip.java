@@ -1,8 +1,8 @@
 package org.example.softdevinternassignment.model;
 
 public class Trip {
-    private int distance;
-    private int passengerCount;
+    private final int distance;
+    private final int passengerCount;
 
     public Trip(int distance, int passengerCount) {
         this.distance = distance;
