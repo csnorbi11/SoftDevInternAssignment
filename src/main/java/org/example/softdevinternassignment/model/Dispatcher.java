@@ -21,12 +21,7 @@ public class Dispatcher {
         List<VehicleSuggestion> combinations=new ArrayList<>();
         for(VehicleBase vehicle:fleet.getVehicles()){
             if(vehicle.getRange()-trip.getDistance()>=0){
-                combinations.add(new VehicleSuggestion(
-                    vehicle.getVehicleType(),
-                    vehicle.getCapacity(),
-                    vehicle.getRange(),
-                    calculateProfit(trip,vehicle))
-                );
+                combinations.add(new VehicleSuggestion(vehicle,calculateProfit(trip,vehicle)));
             }
 
         }
