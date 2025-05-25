@@ -21,15 +21,19 @@ public abstract class VehicleBase {
         this.refuelCost=refuelCost;
     }
 
-    public int getRange(){
+    public final int getRange(){
         return range;
     }
-    public int getCapacity(){
+    public final int getCapacity(){
         return capacity;
     }
-    public String getVehicleType(){
+    public final String getVehicleType(){
         return this.getClass().getSimpleName();
     }
-    public abstract int getRemainingFuel(int distance);
-    public abstract int getRefuelCost(int distance);
+    public int getRemainingFuel(int distance) {
+        return range-distance;
+    }
+    public int getRefuelCost(int distance) {
+        return distance*refuelCost;
+    }
 }
