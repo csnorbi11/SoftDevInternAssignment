@@ -29,7 +29,8 @@ public class Dispatcher {
     }
 
     private int calculateProfit(Trip trip, VehicleBase vehicle){
-        int distanceFee=trip.getPassengerCount()* trip.getDistance()*2;
+        int poundPerHalfHour=2;
+        int distanceFee=trip.getPassengerCount()* trip.getDistance()*poundPerHalfHour;
         int timeFee=trip.getTripTime();
         int refuelCost= vehicle.getRefuelCost(trip.getDistance());
 

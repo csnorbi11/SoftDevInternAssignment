@@ -58,3 +58,4 @@ A DispatcherController valósítsa meg a REST API-t. Ez az osztály, kezeli az a
 akkor az 50km feletti távolság, az városon kívül lesz.
 - Az elektromos járművekre nem volt megadva, hogy városon kívül a fogyasztása, ezért az elektromos járműveket,
 lekorlátoztam, hogy csak városon belül közlekedhetnek.
+- Hibrid jármű rendelkezik gázolaj és elektromos hajtással is, ezért annak az újratankolási költsége 2+1

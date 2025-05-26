@@ -1,6 +1,7 @@
 package org.example.softdevinternassignment.model.vehicles;
 
 public class HybridVehicle extends VehicleBase {
+
     public HybridVehicle(int capacity, int range) {
         super(capacity, range, 3,1.f);
 
@@ -8,11 +9,13 @@ public class HybridVehicle extends VehicleBase {
 
     @Override
     public int getRefuelCost(int distance) {
-        if(distance<=50){
+        int inCityKm = 50;
+        if(distance<= inCityKm){
             return super.getRefuelCost(distance);
         }else{
-            int remainingDistance=distance-50;
-            return super.getRefuelCost(50)+Math.round(remainingDistance*0.5f);
+            int remainingDistance=distance- inCityKm;
+            float inCityConsumption = 0.5f;
+            return super.getRefuelCost(inCityKm)+Math.round(remainingDistance* inCityConsumption);
         }
     }
 

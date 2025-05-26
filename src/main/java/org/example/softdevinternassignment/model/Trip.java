@@ -4,11 +4,12 @@ public class Trip {
     private final int distance;
     private final int passengerCount;
     private final boolean onlyCity;
+    private final int inCityKm=50;
 
     public Trip(int distance, int passengerCount) {
         this.distance = distance;
         this.passengerCount = passengerCount;
-        onlyCity = distance <= 50;
+        onlyCity = distance <= inCityKm;
     }
 
     public int getDistance() {
@@ -18,10 +19,13 @@ public class Trip {
         return passengerCount;
     }
     public int getTripTime(){
+        int inCityMinsPerKm = 2;
         if(onlyCity){
-            return distance*2;
+            return distance* inCityMinsPerKm;
         }else{
-            return distance;
+            int remainingDistance=distance-inCityKm;
+            int outCityMinsPerKm = 1;
+            return inCityKm* inCityMinsPerKm +remainingDistance* outCityMinsPerKm;
         }
     }
 }
