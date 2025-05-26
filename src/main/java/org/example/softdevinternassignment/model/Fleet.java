@@ -1,10 +1,16 @@
 package org.example.softdevinternassignment.model;
 
+import jakarta.annotation.PostConstruct;
+import org.example.softdevinternassignment.model.vehicles.ElectricVehicle;
+import org.example.softdevinternassignment.model.vehicles.GasolineVehicle;
+import org.example.softdevinternassignment.model.vehicles.HybridVehicle;
 import org.example.softdevinternassignment.model.vehicles.VehicleBase;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class Fleet {
     private final List<VehicleBase> vehicles;
 
@@ -17,5 +23,12 @@ public class Fleet {
     }
     public List<VehicleBase> getVehicles() {
         return vehicles;
+    }
+
+    @PostConstruct
+    public void init() {
+        addVehicle(new GasolineVehicle( 5, 500));
+        addVehicle(new HybridVehicle(3, 400));
+        addVehicle(new ElectricVehicle(1,250));
     }
 }

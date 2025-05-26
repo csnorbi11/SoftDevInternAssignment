@@ -9,8 +9,8 @@ public class Dispatcher {
 
     private final Fleet fleet;
 
-    public Dispatcher() {
-        fleet=new Fleet();
+    public Dispatcher(Fleet fleet) {
+        this.fleet=fleet;
     }
 
     public void addVehicleToFleet(VehicleBase vehicle){
