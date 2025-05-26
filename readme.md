@@ -1,10 +1,10 @@
 # Junior Software Engineer – Backend
 
 ## Stack
-A program elkészítéséhez JavaSDK 21-et használtam és a REST API-t a SprintBoot keretrendszert használtam.
+A program elkészítéséhez JavaSDK 21-et használtam és a REST API-t a SpringBoot keretrendszert használtam.
 
 ## Arhitektúra
-A programhoz MVC arhitektúrát használtam. MVC arhitektúra megfelelően illeszkedik a feladathoz, mert a REST API-hoz
+A programhoz MVC arhitektúrát valósít meg. MVC arhitektúra megfelelően illeszkedik a feladathoz, mert a REST API-hoz
 szükséges feladatokat ki lehet szervezni a Controller-be, míg a program belső működését, üzleti logikát a Model-be. Ezzel azt elérve,
 hogy a program könnyen átlátható és bővíthető lesz. Jelen esetben a View-ra nincs szükség, mert a program nem nyújt felületet
 a felhasználóknak.
@@ -12,12 +12,15 @@ a felhasználóknak.
 ## Osztályok
 ### Osztálydiagram
 <img src="ClassDiagram.svg" alt="ClassDiagram" width="auto" height="auto">
+(Megjegyzés: A fehérgyémánt, az a kompozíció és a fekete pedig az aggregáció. Sötétmódban konvertáltam ki,
+emiatt az aggregáció és a kompozíció színei invertálódtak.) 
 
 ### Osztály leírások
 ### - Model
 #### VehicleBase
-VehicleBase absztrakt osztály felelőssége hogy a járművekhez tartozó közös tulajdonságokat és működéseket összefoglalja.
-Ez Template Method tervezési minta.<br>
+VehicleBase absztrakt osztály felelőssége hogy a járművekhez tartozó közös tulajdonságokat és működéseket összefoglalja.<br>
+Konstruktorában beállítja az összes attribútumát. Továbbá kiszámolja a jármű újratankolási költségét.
+A Template Method tervezési mintát alkalmazom.<br>
 Azért választotam ezt a tervezési mintát, mert így a SOLID alapelvek közül, nem sérül, a
 "Don't Repeat Yourself" és az "Open/Closed" elvek. Így olyan kódot eredményezve, amely könnyen bővíthető és átlátható.<br>
 #### GasolineVehicle
@@ -48,8 +51,10 @@ VehicleSuggestion egy adatszerkezetbe szervezi a járműveket és a hozzájuk ta
 ### - Controller
 
 #### DispatcherController
-A DispatcherController valósítsa meg a REST API-t. A Fleet-hez hozzá lehet adni új járműveket, és
-le lehet kérni a megadott Trip-hez megfelelő járműveket.
+A DispatcherController valósítsa meg a REST API-t. Ez az osztály, kezeli az adott Triphez kért javaslatot.
 
-#### VehicleRequest (record)
-VehicleRequest egy adatszerekezetbe szervezi,
+## Tervezési döntések
+- Ha egy utazás 50km alatt van, akkor az csak városban közlekedik, és ha a távolság nagyobb mint 50km,
+akkor az 50km feletti távolság, az városon kívül lesz.
+- Az elektromos járművekre nem volt megadva, hogy városon kívül a fogyasztása, ezért az elektromos járműveket,
+lekorlátoztam, hogy csak városon belül közlekedhetnek.

@@ -18,20 +18,6 @@ public class DispatcherController {
     private final Dispatcher dispatcher=new Dispatcher();
 
 
-    @PostMapping("/vehicles")
-    public ResponseEntity<String> addVehicle(@RequestBody VehicleRequest request){
-        VehicleBase vehicle= switch (request.type().toLowerCase()){
-            case "gasoline" -> new GasolineVehicle(request.capacity(),request.range());
-            case "electric" -> new ElectricVehicle(request.capacity(),request.range());
-            case "hybrid" -> new HybridVehicle(request.capacity(),request.range());
-            default -> throw new IllegalArgumentException("Invalid vehicle type: "+request.type());
-
-        };
-        dispatcher.addVehicleToFleet(vehicle);
-
-        return ResponseEntity.ok("Vehicle added");
-    }
-
     @PostMapping("/suggestions")
     public ResponseEntity<String> listSuggestions(@RequestBody Trip trip){
         return ResponseEntity.ok(dispatcher.listVehicles(trip).toString());
