@@ -25,6 +25,9 @@ public class Fleet {
         return vehicles;
     }
 
+    /**
+     * példa járművek teszteléshez
+     */
     @PostConstruct
     public void init() {
         addVehicle(new GasolineVehicle( 5, 500));

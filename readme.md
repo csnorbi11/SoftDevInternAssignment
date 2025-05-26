@@ -60,7 +60,7 @@ lekorlátoztam, hogy csak városon belül közlekedhetnek és a fogyasztása meg
 - Hibrid jármű rendelkezik gázolaj és elektromos hajtással is, ezért annak az újratankolási költsége egységenként a kettő összege
 - A Template Method tervezési mintát alkalmaztam a járműveknél.
   Azért választotam ezt a tervezési mintát, mert így a SOLID alapelvek közül, nem sérül, a
-  "Don't Repeat Yourself" és az "Open/Closed" elvek. Így olyan kódot eredményezve, amely könnyen bővíthető és átlátható.ű
+  "Don't Repeat Yourself" és az "Open/Closed" elvek. Így olyan kódot eredményezve, amely könnyen bővíthető és átlátható.
 
 ## Teszt
 A flotta tartalmaz egy PostContruct annótációval rendelkező init() függvényt, ami feltölti a flottát, három példa járművel, ami az alkalmazás indulásakor fog lefutni.

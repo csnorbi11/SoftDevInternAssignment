@@ -7,6 +7,11 @@ public class HybridVehicle extends VehicleBase {
 
     }
 
+    /**
+     * Azért kell külön implementációra szükség, mert a távolságtól függően változik a fogyasztása
+     * @param distance távolság
+     * @return tankolási költség
+     */
     @Override
     public int getRefuelCost(int distance) {
         int inCityKm = 50;

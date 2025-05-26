@@ -17,6 +17,11 @@ public class Dispatcher {
         fleet.addVehicle(vehicle);
     }
 
+    /**
+     * Kilistázza a megfelelő járműveket a profittal együtt
+     * @param trip az utazás
+     * @return a jármű javaslatok listája
+     */
     public List<VehicleSuggestion> listVehicles(Trip trip){
         List<VehicleSuggestion> combinations=new ArrayList<>();
         for(VehicleBase vehicle:fleet.getVehicles()){
